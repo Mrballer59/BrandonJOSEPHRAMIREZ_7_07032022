@@ -11,8 +11,7 @@ h1 {
 input {
   font-family: "lato";
 }
-header {
-  width: 100%;
+.header-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
