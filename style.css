@@ -25,12 +25,13 @@ header h1 {
 }
 .section {
   margin-bottom: 25px;
+  position: relative;
   display: flex;
 }
 .section_research_bar {
   width: 100%;
-  height: 69px;
   border-radius: 5px;
+  height: 69px;
   background-color: #e7e7e7;
   border: none;
   font-size: 18px;
@@ -38,6 +39,60 @@ header h1 {
 }
 .section_research_label {
   padding-top: 17.5px;
+  position: absolute;
+  right: 16.5px;
+}
+.tag-bar {
+  display: flex;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+.tag-bar_ingredient1 {
+  background-color: #3282f7;
+  font-family: "lato";
+  color: #ffff;
+  border-radius: 5px;
+  padding: 10px 55px 10.5px 20px;
+  font-size: 14px;
+  font-weight: 700;
   position: relative;
-  right: 52;
+}
+.tag-bar1_ingredient-tag_cancel {
+  background-color: #3282f7;
+  border: none;
+  position: absolute;
+  right: 22px;
+}
+.tag-bar_ingredient2 {
+  background-color: #68d9a4;
+  color: #ffff;
+  font-family: "lato";
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 55px 10.5px 20px;
+  position: relative;
+}
+.tag-bar2_ingredient-tag_cancel {
+  border: none;
+  position: absolute;
+  right: 22px;
+  background-color: #68d9a4;
+}
+
+.tag-bar_ingredient3 {
+  background-color: #ed6454;
+  color: #ffff;
+  border-radius: 5px;
+  font-family: "lato";
+  font-size: 14px;
+  padding: 10px 55px 10.5px 20px;
+  position: relative;
+  font-weight: 700;
+}
+.tag-bar3_ingredient-tag_cancel {
+  position: absolute;
+  border: none;
+  background-color: #ed6454;
+  right: 22px;
 }
