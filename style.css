@@ -96,3 +96,164 @@ header h1 {
   background-color: #ed6454;
   right: 22px;
 }
+.drop-search-ingredient {
+  margin-top: 15px;
+  display: flex;
+  column-gap: 20px;
+}
+.box-ingredient {
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  align-items: center;
+  background-color: #3282f7;
+  width: 170px;
+  height: 70px;
+  border-radius: 5px;
+  color: #ffff;
+  font-family: "lato";
+}
+.box-ingredient-text {
+  width: 100%;
+}
+.box-ingredient_searchtext {
+  position: relative;
+}
+.box-ingredient-searchtext_label {
+  margin: 0 25px 0 15px;
+}
+.box-ingredient_searchtext_arrowdown {
+  position: absolute;
+  top: 5px;
+  right: 17px;
+}
+.box-ingredient-text_list {
+  margin-top: 24px;
+  display: none;
+  flex-direction: column;
+  flex-flow: wrap;
+  row-gap: 10px;
+  column-gap: 75px;
+  padding: 0 19px 15px 20px;
+}
+#ingredient {
+  background-color: #3282f7;
+  color: #ffff;
+  font-family: "lato";
+  font-size: 18px;
+  font-weight: 700;
+  width: 65%;
+  margin: 0 25px 0 15px;
+  border: none;
+  outline: none;
+  display: none;
+}
+#ingredient::placeholder {
+  color: #ffff;
+  opacity: 0.5;
+}
+.box-appareil {
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  align-items: center;
+  background-color: #68d9a4;
+  width: 170px;
+  height: 70px;
+  border-radius: 5px;
+  color: #ffff;
+  font-family: "lato";
+}
+.box-appareil-text {
+  width: 100%;
+}
+.box-appareil_searchtext {
+  position: relative;
+}
+.box-appareil_searchtext_arrowdown {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.box-appareil-searchtext_label {
+  margin: 0 25px 0 15px;
+}
+.box-appareil_list {
+  margin-top: 23px;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 85px;
+  padding: 0 19px 16px 19px;
+}
+.box-appareil_searchtext li {
+  width: 150px;
+}
+#appareil {
+  background-color: #68d9a4;
+  color: #ffff;
+  font-family: "lato";
+  font-size: 18px;
+  font-weight: 700;
+  width: 65%;
+  margin: 0 25px 0 15px;
+  border: none;
+  outline: none;
+}
+#appareil::placeholder {
+  color: #ffff;
+  opacity: 0.5;
+}
+.box-ustensils {
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  align-items: center;
+  background-color: #ed6454;
+  width: 170px;
+  height: 70px;
+  border-radius: 5px;
+  color: #ffff;
+  font-family: "lato";
+}
+.box-ustensils-text {
+  width: 100%;
+}
+.box-ustensils_searchtext {
+  position: relative;
+}
+.box-ustensils-searchtext_label {
+  margin: 0 25px 0 15px;
+}
+.box-ustensils_searchtext_arrowdown {
+  position: absolute;
+  top: 5px;
+  right: 18px;
+}
+.box-ustensils_list {
+  margin-top: 23px;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 85px;
+  padding: 0 19px 16px 19px;
+}
+
+#ustensils {
+  background-color: #ed6454;
+  color: #ffff;
+  font-family: "lato";
+  font-size: 18px;
+  font-weight: 700;
+  width: 65%;
+  margin: 0 25px 0 15px;
+  border: none;
+  outline: none;
+}
+#ustensils::placeholder {
+  color: #ffff;
+  opacity: 0.5;
+}
