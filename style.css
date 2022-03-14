@@ -152,6 +152,7 @@ header h1 {
   color: #ffff;
   opacity: 0.5;
 }
+
 .box-appareil {
   display: flex;
   font-size: 18px;
@@ -256,4 +257,43 @@ header h1 {
 #ustensils::placeholder {
   color: #ffff;
   opacity: 0.5;
+}
+.display-recipes {
+  padding: 25px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 50px 50px;
+}
+.display-recipes_card1 {
+  width: 30.5%;
+  height: 365px;
+}
+.display-recipes_card1_description {
+  height: 185px;
+  background-color: #e7e7e7;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-family: "lato";
+  font-size: 18px;
+}
+.display-recipes_card1_description_main {
+  height: 62px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.display-recipes_second_part {
+  font-size: 12px;
+  display: flex;
+  padding: 0 18px 19px 20px;
+}
+.display-recipes_second_part_ingredient {
+  width: 50%;
+}
+.display-recipes_second_part_ingredient span {
+  font-weight: 700;
+}
+.display-recipes_second_part_cooking {
+  font-family: "roboto";
+  width: 50%;
 }
