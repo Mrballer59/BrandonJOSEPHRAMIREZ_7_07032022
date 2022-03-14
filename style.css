@@ -266,7 +266,7 @@ header h1 {
 }
 .display-recipes_card1 {
   width: 30.5%;
-  height: 365px;
+  height: auto;
 }
 .display-recipes_card1_description {
   height: 185px;
@@ -296,4 +296,8 @@ header h1 {
 .display-recipes_second_part_cooking {
   font-family: "roboto";
   width: 50%;
+}
+.display-recipes_card1_img {
+  background: #c7bebe;
+  height: 178px;
 }
