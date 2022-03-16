@@ -1,3 +1,14 @@
+*, 
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+
 body {
   box-sizing: border-box;
   max-width: 1440px;
@@ -261,7 +272,7 @@ header h1 {
 .display-recipes {
   padding: 25px;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 50px 50px;
 }
 .display-recipes_card1 {
@@ -269,7 +280,6 @@ header h1 {
   height: auto;
 }
 .display-recipes_card1_description {
-  height: 185px;
   background-color: #e7e7e7;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -296,8 +306,19 @@ header h1 {
 .display-recipes_second_part_cooking {
   font-family: "roboto";
   width: 50%;
+  font-size: 12px;
+  height: 100px;
+  overflow: auto;
+  
+  line-height: 100%;
+
 }
 .display-recipes_card1_img {
   background: #c7bebe;
   height: 178px;
+}
+.display-recipes_timer{
+  display: flex;
+  column-gap: 7px;
+  font-weight: bold;
 }

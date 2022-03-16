@@ -1,279 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Lato:wght@400;700&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <title>Les Petits Plats</title>
-    <script
-      src="https://kit.fontawesome.com/6739c71ce4.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container-header">
-        <div class="header-logo">
-          <img src="/assets/logo-petit-plat.jpg" alt="" />
-          <h1 class="logo-text">Les petits plats</h1>
-        </div>
-      </div>
-    </header>
-    <!-- Main -->
-    <section class="section">
-      <input
-        type="search"
-        class="section_research_bar"
-        name="research"
-        placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette "
-      />
-      <label for="research" class="section_research_label">
-        <svg width="33" height="33" viewBox="0 0 33 33" fill="none">
-          <path
-            d="M23.4167 20.6667H21.9683L21.455 20.1717C23.2517 18.0817 24.3333 15.3683 24.3333 12.4167C24.3333 5.835 18.9983 0.5 12.4167 0.5C5.835 0.5 0.5 5.835 0.5 12.4167C0.5 18.9983 5.835 24.3333 12.4167 24.3333C15.3683 24.3333 18.0817 23.2517 20.1717 21.455L20.6667 21.9683V23.4167L29.8333 32.565L32.565 29.8333L23.4167 20.6667ZM12.4167 20.6667C7.85167 20.6667 4.16667 16.9817 4.16667 12.4167C4.16667 7.85167 7.85167 4.16667 12.4167 4.16667C16.9817 4.16667 20.6667 7.85167 20.6667 12.4167C20.6667 16.9817 16.9817 20.6667 12.4167 20.6667Z"
-            fill="black"
-          />
-        </svg>
-      </label>
-    </section>
-    <div class="tag-bar">
-      <span class="tag-bar_ingredient1"
-        >testIngredient
-        <button class="tag-bar1_ingredient-tag_cancel">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path
-              d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
-              fill="white"
-            />
-          </svg>
-        </button>
-      </span>
-    </div>
-    <section class="drop-search-ingredient">
-      <div class="box-ingredient">
-        <div class="box-ingredient-text">
-          <div class="box-ingredient_searchtext">
-            <label class="box-ingredient-searchtext_label" for="ingredient"
-              >Ingrédients</label
-            >
-            <input
-              type="text"
-              placeholder="Rechercher un ingrédient"
-              id="ingredient"
-            />
-            <svg
-              class="box-ingredient_searchtext_arrowdown"
-              width="16"
-              height="11"
-              viewBox="0 0 16 11"
-              fill="none"
-            >
-              <path
-                d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z"
-                fill="white"
-              />
-            </svg>
-          </div>
-          <ul class="box-ingredient-text_list">
-            <li>Ingredient 1</li>
-            <li>Ingredient 2</li>
-            <li>Ingredient 3</li>
-            <li>Ingredient 4</li>
-            <li>Ingredient 5</li>
-            <li>Ingredient 6</li>
-            <li>Ingredient 7</li>
-            <li>Ingredient 8</li>
-            <li>Ingredient 9</li>
-            <li>Ingredient 10</li>
-            <li>Ingredient 11</li>
-            <li>Ingredient 12</li>
-            <li>Ingredient 13</li>
-            <li>Ingredient 14</li>
-            <li>Ingredient 15</li>
-            <li>Ingredient 16</li>
-            <li>Ingredient 17</li>
-            <li>Ingredient 18</li>
-            <li>Ingredient 19</li>
-            <li>Ingredient 20</li>
-            <li>Ingredient 21</li>
-            <li>Ingredient 22</li>
-            <li>Ingredient 23</li>
-            <li>Ingredient 24</li>
-            <li>Ingredient 25</li>
-            <li>Ingredient 26</li>
-            <li>Ingredient 27</li>
-            <li>Ingredient 28</li>
-            <li>Ingredient 29</li>
-            <li>Ingredient 30</li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="box-appareil">
-        <div class="box-appareil-text">
-          <div class="box-appareil_searchtext">
-            <label class="box-appareil-searchtext_label" for="appareil"
-              >Appareil</label
-            >
-            <input
-              placeholder="Recherche une appareil"
-              type="text"
-              id="appareil"
-            />
-            <svg
-              class="box-appareil_searchtext_arrowdown"
-              width="16"
-              height="11"
-              viewBox="0 0 16 11"
-              fill="none"
-            >
-              <path
-                d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z"
-                fill="white"
-              />
-            </svg>
-          </div>
-          <ul class="box-appareil_list">
-            <li>appareil 1</li>
-            <li>appareil 2</li>
-            <li>appareil 3</li>
-          </ul>
-        </div>
-      </div>
-      <div class="box-ustensils">
-        <div class="box-ustensils-text">
-          <div class="box-ustensils_searchtext">
-            <label class="box-ustensils-searchtext_label" for="ustensils"
-              >Ustensils</label
-            >
-            <input
-              placeholder="Rechercher un ustensile"
-              type="text"
-              id="ustensils"
-            />
-            <svg
-              class="box-ustensils_searchtext_arrowdown"
-              width="16"
-              height="11"
-              viewBox="0 0 16 11"
-              fill="none"
-            >
-              <path
-                d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z"
-                fill="white"
-              />
-            </svg>
-          </div>
-          <ul class="box-ustensils_list">
-            <li>ustensils 1</li>
-            <li>ustensils 2</li>
-            <li>ustensils 3</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="display-recipes">
-      <div class="display-recipes_card1">
-        <div class="display-recipes_card1_img"></div>
-        <div class="display-recipes_card1_description">
-          <div class="display-recipes_card1_description_main">
-            <div class="display-recipes_card1_description_main_title">
-              Title
-            </div>
-            <div class="display-recipes_timer">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M10 0C4.5 0 0 4.5 0 10C0 15.5 4.5 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10.5 5H9V11L14.2 14.2L15 12.9L10.5 10.2V5Z"
-                  fill="black"
-                />
-              </svg>
-              <span>10 min</span>
-            </div>
-          </div>
-          <div class="display-recipes_second_part">
-            <div class="display-recipes_second_part_ingredient">
-              <span>Ingredient:</span>
-            </div>
-            <div class="display-recipes_second_part_cooking">
-              example cooking Lorem ipsum dolor sit amet consectetur adipisicing
-              elit.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="display-recipes_card1">
-        <div class="display-recipes_card1_img"></div>
-        <div class="display-recipes_card1_description">
-          <div class="display-recipes_card1_description_main">
-            <div class="display-recipes_card1_description_main_title">
-              Title
-            </div>
-            <div class="display-recipes_timer">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M10 0C4.5 0 0 4.5 0 10C0 15.5 4.5 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10.5 5H9V11L14.2 14.2L15 12.9L10.5 10.2V5Z"
-                  fill="black"
-                />
-              </svg>
-              <span>10 min</span>
-            </div>
-          </div>
-          <div class="display-recipes_second_part">
-            <div class="display-recipes_second_part_ingredient">
-              <span>Ingredient:</span>
-            </div>
-            <div class="display-recipes_second_part_cooking">
-              example cooking Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Eaque voluptatum inventore recusandae magnam
-              consectetur, porro iure aliquid vel quaerat tempore illum
-              provident ad quia accusamus velit doloremque veniam dolor ab optio
-              cum ipsam dolore. Quibusdam excepturi eaque dolorum, suscipit nemo
-              harum praesentium cupiditate! Veritatis error tempore commodi
-              distinctio non voluptatum? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="display-recipes_card1">
-        <div class="display-recipes_card1_img"></div>
-        <div class="display-recipes_card1_description">
-          <div class="display-recipes_card1_description_main">
-            <div class="display-recipes_card1_description_main_title">
-              Title
-            </div>
-            <div class="display-recipes_timer">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M10 0C4.5 0 0 4.5 0 10C0 15.5 4.5 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10.5 5H9V11L14.2 14.2L15 12.9L10.5 10.2V5Z"
-                  fill="black"
-                />
-              </svg>
-              <span>10 min</span>
-            </div>
-          </div>
-          <div class="display-recipes_second_part">
-            <div class="display-recipes_second_part_ingredient">
-              <span>Ingredient:</span>
-            </div>
-            <div class="display-recipes_second_part_cooking">
-              example cooking Lorem ipsum dolor sit amet consectetur adipisicing
-              elit.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script src="/scripts/index.js"></script>
-  </body>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
+	<title>Les Petits Plats</title>
+	<script src="https://kit.fontawesome.com/6739c71ce4.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="./data/recipes.js"></script>
+</head>
+
+<body>
+	<!-- Header -->
+	<header class="header">
+		<div class="container-header">
+			<div class="header-logo">
+				<img src="assets/logo-petit-plat.jpg" alt="" />
+				<h1 class="logo-text">Les petits plats</h1>
+			</div>
+		</div>
+	</header>
+	<!-- Main -->
+	<section class="section">
+		<input type="search" class="section_research_bar" name="research" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette " />
+		<label for="research" class="section_research_label">
+			<svg width="33" height="33" viewBox="0 0 33 33" fill="none">
+				<path
+					d="M23.4167 20.6667H21.9683L21.455 20.1717C23.2517 18.0817 24.3333 15.3683 24.3333 12.4167C24.3333 5.835 18.9983 0.5 12.4167 0.5C5.835 0.5 0.5 5.835 0.5 12.4167C0.5 18.9983 5.835 24.3333 12.4167 24.3333C15.3683 24.3333 18.0817 23.2517 20.1717 21.455L20.6667 21.9683V23.4167L29.8333 32.565L32.565 29.8333L23.4167 20.6667ZM12.4167 20.6667C7.85167 20.6667 4.16667 16.9817 4.16667 12.4167C4.16667 7.85167 7.85167 4.16667 12.4167 4.16667C16.9817 4.16667 20.6667 7.85167 20.6667 12.4167C20.6667 16.9817 16.9817 20.6667 12.4167 20.6667Z"
+					fill="black" />
+			</svg>
+		</label>
+	</section>
+	<div class="tag-bar">
+		<span class="tag-bar_ingredient1">testIngredient
+			<button class="tag-bar1_ingredient-tag_cancel">
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+					<path
+						d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
+						fill="white" />
+				</svg>
+			</button>
+		</span>
+	</div>
+	<section class="drop-search-ingredient">
+		<div class="box-ingredient">
+			<div class="box-ingredient-text">
+				<div class="box-ingredient_searchtext">
+					<label class="box-ingredient-searchtext_label" for="ingredient">Ingrédients</label>
+					<input type="text" placeholder="Rechercher un ingrédient" id="ingredient" />
+					<svg class="box-ingredient_searchtext_arrowdown" width="16" height="11" viewBox="0 0 16 11" fill="none">
+						<path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white" />
+					</svg>
+				</div>
+				<ul class="box-ingredient-text_list">
+					<li>Ingredient 1</li>
+					<li>Ingredient 2</li>
+					<li>Ingredient 3</li>
+					<li>Ingredient 4</li>
+					<li>Ingredient 5</li>
+					<li>Ingredient 6</li>
+					<li>Ingredient 7</li>
+					<li>Ingredient 8</li>
+					<li>Ingredient 9</li>
+					<li>Ingredient 10</li>
+					<li>Ingredient 11</li>
+					<li>Ingredient 12</li>
+					<li>Ingredient 13</li>
+					<li>Ingredient 14</li>
+					<li>Ingredient 15</li>
+					<li>Ingredient 16</li>
+					<li>Ingredient 17</li>
+					<li>Ingredient 18</li>
+					<li>Ingredient 19</li>
+					<li>Ingredient 20</li>
+					<li>Ingredient 21</li>
+					<li>Ingredient 22</li>
+					<li>Ingredient 23</li>
+					<li>Ingredient 24</li>
+					<li>Ingredient 25</li>
+					<li>Ingredient 26</li>
+					<li>Ingredient 27</li>
+					<li>Ingredient 28</li>
+					<li>Ingredient 29</li>
+					<li>Ingredient 30</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="box-appareil">
+			<div class="box-appareil-text">
+				<div class="box-appareil_searchtext">
+					<label class="box-appareil-searchtext_label" for="appareil">Appareil</label>
+					<input placeholder="Recherche une appareil" type="text" id="appareil" />
+					<svg class="box-appareil_searchtext_arrowdown" width="16" height="11" viewBox="0 0 16 11" fill="none">
+						<path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white" />
+					</svg>
+				</div>
+				<ul class="box-appareil_list">
+					<li>appareil 1</li>
+					<li>appareil 2</li>
+					<li>appareil 3</li>
+				</ul>
+			</div>
+		</div>
+		<div class="box-ustensils">
+			<div class="box-ustensils-text">
+				<div class="box-ustensils_searchtext">
+					<label class="box-ustensils-searchtext_label" for="ustensils">Ustensils</label>
+					<input placeholder="Rechercher un ustensile" type="text" id="ustensils" />
+					<svg class="box-ustensils_searchtext_arrowdown" width="16" height="11" viewBox="0 0 16 11" fill="none">
+						<path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white" />
+					</svg>
+				</div>
+				<ul class="box-ustensils_list">
+					<li>ustensils 1</li>
+					<li>ustensils 2</li>
+					<li>ustensils 3</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="display-recipes">
+		<div class="display-recipes_card1">
+			<div class="display-recipes_card1_img"></div>
+			<div class="display-recipes_card1_description">
+				<div class="display-recipes_card1_description_main">
+					<div class="display-recipes_card1_description_main_title">
+						<h3 class="title"></h3>
+					</div>
+					<div class="display-recipes_timer">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+							<path
+								d="M10 0C4.5 0 0 4.5 0 10C0 15.5 4.5 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10.5 5H9V11L14.2 14.2L15 12.9L10.5 10.2V5Z"
+								fill="black" />
+						</svg>
+						<span class="timer"></span>
+					</div>
+				</div>
+				<div class="display-recipes_second_part">
+					<div class="display-recipes_second_part_ingredient">
+						<div class="ingList">
+							<span class="ingreed1"></span>
+							<span class="quantity"></span>
+							<span class="unit"></span>
+						</div>
+					</div>
+					<div class="display-recipes_second_part_cooking"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="./scripts/index.js"></script>
+</body>
+
 </html>
