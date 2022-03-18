@@ -1,3 +1,5 @@
+// import recipes from './data/recipes.js';
+
 function recipe(articles, premier, template, parentNode, templateIng) {
 	let first = true;
 	let clone = template;
@@ -36,5 +38,4 @@ async function main() {
 		premier = false;
 	}
 }
-
 main();
