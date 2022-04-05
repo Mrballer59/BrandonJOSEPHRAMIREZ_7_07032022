@@ -162,7 +162,7 @@ const recipes = [
               "quantity": 2
          },
          {
-             "ingredient": "Crème fraiche",
+             "ingredient": "Crème Fraîche",
              "quantity": 2,
              "unit": "cuillères à soupe"
          },
@@ -200,7 +200,7 @@ const recipes = [
               "quantity": "2"
           },
           {
-              "ingredient":"Crème fraiche",
+              "ingredient":"Crème Fraîche",
               "quantity":25,
               "unit": "cl"
           },
@@ -315,7 +315,7 @@ const recipes = [
               "ingredient": "Vinaigre Balsamic"
           },
           {
-              "ingredient": "Huile d'olive"
+              "ingredient": "Huile d'olives"
           }, 
           {
               "ingredient": "Basilic"    
@@ -549,7 +549,7 @@ const recipes = [
       "servings": 2,
       "ingredients": [
           {
-              "ingredient": "Tomate",
+              "ingredient": "Tomates",
               "quantity": 500,
               "unit": "grammes"
           },
@@ -939,7 +939,7 @@ const recipes = [
               "quantity": 1
           },
           {
-              "ingredient": "Crème fraîche",
+              "ingredient": "Crème Fraîche",
               "quantity": 4,
               "unit": "cuillère à soupe"
           },
@@ -1171,7 +1171,7 @@ const recipes = [
               "unit": "grammes"
           },
           {
-              "ingredient": "Crème fraîche",
+              "ingredient": "Crème Fraîche",
               "quantity": 20,
               "unit": "cl"
           },
