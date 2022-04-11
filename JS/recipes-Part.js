@@ -3,18 +3,19 @@ function getRecipes(recipe) {
   const sectionPartRecipes = document.querySelector("#display-menu");
   const div = document.createElement("div");
 
-  const ulIngredientslist = document.createElement("ul");
-  ulIngredientslist.classList.add("list_ingredient");
+  const ulIngredientlist = document.createElement("ul");
+  ulIngredientlist.classList.add("list_ingredient");
 
   const ingredients = recipe.ingredients;
 
-  ingredients.forEach((ingredient) => {
+  ingredients.forEach(ingredient => {
     const li = document.createElement("li");
     li.innerHTML = `<span class="ingredient-menu">${
       ingredient.ingredient
     }</span>: ${ingredient.quantity || ""} ${ingredient.unit || ""}`;
-    ulIngredientslist.appendChild(li);
+    ulIngredientlist.appendChild(li);
   });
+
   div.setAttribute("class", "card");
 
   div.innerHTML = `<div class="img-carte"></div>
@@ -28,7 +29,7 @@ function getRecipes(recipe) {
         </svg> ${recipe.time} min</p>
             </div>
             <div class="body-carte">
-            ${ulIngredientslist.outerHTML}
+            ${ulIngredientlist.outerHTML}
             <p class="etape-recette">
             ${recipe.description}
       </div>
@@ -36,4 +37,4 @@ function getRecipes(recipe) {
   sectionPartRecipes.appendChild(div);
   //   });
 }
-getRecipes();
+// getRecipes();
