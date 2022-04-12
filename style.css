@@ -73,7 +73,6 @@ header {
 .close-selector {
   width: auto;
   border: white;
-
   margin-left: 10px;
   cursor: pointer;
 }
