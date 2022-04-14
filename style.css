@@ -1,14 +1,14 @@
-*, 
+*,
 *::after,
-*::before{
+*::before {
   margin: 0;
   padding: 0;
 }
-*{
+* {
   text-decoration: none;
   list-style: none;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 10px;
 }
 body {
@@ -32,7 +32,7 @@ body {
   #display-menu {
     justify-content: center;
   }
-} 
+}
 header {
   text-align: center;
 }

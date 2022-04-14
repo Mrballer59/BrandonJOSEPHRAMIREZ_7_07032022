@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
-	<title>Les Petits Plats</title>
-	<script src="https://kit.fontawesome.com/6739c71ce4.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="style.css" />
-	<script type="text/javascript" src="./data/recipes.js"></script>
-	</head>
-	<body>
-	<!-- Header -->
-	<header>
-	<a href="index.html">
-	<img class="logo-header" src="/assets/logo.png" alt="logo du site" />
-	</a>
-	<input
-	id="searchbar"
-	onkeyup=""
-	type="text"
-	name="search"
-	placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
-	/>
-	</header>
-	<!-- BOUTON DE TRI -->
-	<div class="selector-contain">
-	<!-- <div class="add-selector ingredient"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Lato:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Les Petits Plats</title>
+    <script
+      src="https://kit.fontawesome.com/6739c71ce4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="./data/recipes.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <a href="index.html">
+        <img class="logo-header" src="/assets/logo.png" alt="logo du site" />
+      </a>
+      <input
+        id="searchbar"
+        type="text"
+        name="search"
+        placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+      />
+    </header>
+    <!-- BOUTON DE TRI -->
+    <div class="selector-contain">
+      <!-- <div class="add-selector ingredient"> 
 	riz
 	<div class="close-selector"></div>
 	</div>
@@ -43,47 +47,47 @@
 	test
 	<div class="close-selector"></div>
 	</div>-->
-	</div>
-	<nav>
-	<div class="dropdown">
-	<input
-		class="btn-selection ingredient"
-		id="ingredient-select"
-		type="text"
-		name="ingredient"
-		placeholder="Ingrédient"
-	/>
-	<div
-		class="dropdown-content ingredient"
-		id="dropdown-ingredients"
-	></div>
-	</div>
-	<div class="dropdown">
-	<input
-		class="btn-selection appareils"
-		id="appareils-select"
-		type="text"
-		name="appareils"
-		placeholder="Appareils"
-	/>
-		<div class="dropdown-content appareils" id="dropdown-appareils"></div>
-	</div>
-	<div class="dropdown">
-	<input
-		class="btn-selection ustensiles"
-		id="ustensiles-select"
-		type="text"
-		name="ustensiles"
-		placeholder="Ustensiles"
-	/>
-	<div class="dropdown-content ustensiles" id="dropdown-ustensils"></div>
-	</div>
-	</nav>
-<!-- Menu -->
+    </div>
+    <nav>
+      <div class="dropdown">
+        <input
+          class="btn-selection ingredient"
+          id="ingredient-select"
+          type="text"
+          name="ingredient"
+          placeholder="Ingrédient"
+        />
+        <div
+          class="dropdown-content ingredient"
+          id="dropdown-ingredients"
+        ></div>
+      </div>
+      <div class="dropdown">
+        <input
+          class="btn-selection appareils"
+          id="appareils-select"
+          type="text"
+          name="appareils"
+          placeholder="Appareils"
+        />
+        <div class="dropdown-content appareils" id="dropdown-appareils"></div>
+      </div>
+      <div class="dropdown">
+        <input
+          class="btn-selection ustensiles"
+          id="ustensiles-select"
+          type="text"
+          name="ustensiles"
+          placeholder="Ustensiles"
+        />
+        <div class="dropdown-content ustensiles" id="dropdown-ustensils"></div>
+      </div>
+    </nav>
+    <!-- Menu -->
 
-<section id="display-menu"></section>
-</body>
-<!-- <script type="text/javascript" src="/data/recipes.js"></script> -->
-<script type="text/javascript" src="/JS/recipes-Part.js"></script>
-<script type="text/javascript" src="/JS/app.js"></script>
+    <section id="display-menu"></section>
+  </body>
+  <!-- <script type="text/javascript" src="/data/recipes.js"></script> -->
+  <script type="text/javascript" src="/JS/recipes-Part.js"></script>
+  <script type="text/javascript" src="/JS/app.js"></script>
 </html>

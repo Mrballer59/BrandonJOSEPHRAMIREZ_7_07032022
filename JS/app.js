@@ -1,8 +1,8 @@
 const dropDownUstensiles = document.querySelector("#dropdown-ustensils");
 const sectionRecipes = document.querySelector("#display-menu");
 const dropDownAppareils = document.querySelector("#dropdown-appareils");
-const searchBar = document.getElementById("searchbar");
 const dropDownIngredients = document.querySelector("#dropdown-ingredients");
+const searchBar = document.getElementById("searchbar");
 const selectorContain = document.querySelector(".selector-contain");
 
 let arrRecipes = [];
@@ -53,7 +53,7 @@ function hideTag() {
     });
   });
 }
-// Getting the duplicate
+//Getting the duplicate
 function newRecipesList() {
   ingredientArrNew = [...new Set(ingredientArr)];
   applianceArrNew = [...new Set(applianceArr)];
@@ -65,7 +65,7 @@ function newRecipesList() {
 
   applianceArrNew.forEach((ne) => {
     const chainA = document.createElement("a");
-    chainA.classList.add("link-nav","appareils")
+    chainA.classList.add("link-nav", "appareils");
     let string = ne[0].toUpperCase() + ne.slice(1);
     chainA.innerHTML = `${string}`;
     dropDownAppareils.append(chainA);
@@ -73,7 +73,7 @@ function newRecipesList() {
 
   ustensilesArrNew.forEach((ne) => {
     const chainU = document.createElement("a");
-    chainU.classList.add("link-nav", "ustensiles")
+    chainU.classList.add("link-nav", "ustensiles");
     let string = ne[0].toUpperCase() + ne.slice(1);
     chainU.innerHTML = `${string}`;
     dropDownUstensiles.append(chainU);
@@ -81,20 +81,19 @@ function newRecipesList() {
 
   ingredientArrNew.forEach((ne) => {
     const chainI = document.createElement("a");
-    chainI.classList.add("link-nav", "ingredients")
+    chainI.classList.add("link-nav", "ingredients");
     let string = ne[0].toUpperCase() + ne.slice(1);
     chainI.innerHTML = `${string}`;
     dropDownIngredients.append(chainI);
   });
 
-  //Declaring the Selector for Dom 
+  //Declaring the Selector for Dom
   const chainNavIngredient = document.querySelectorAll(
     "a.link-nav.ingredients"
   );
   const chainNavUstensiles = document.querySelectorAll("a.link-nav.ustensiles");
   const chainNavAppareils = document.querySelectorAll("a.link-nav.appareils");
 
- 
   chainNavAppareils.forEach((chain) => {
     chain.addEventListener("click", () => {
       const tagApp = document.createElement("div");
@@ -136,9 +135,18 @@ function newRecipesList() {
     });
   });
 }
-//All my function exacuting 
+
+//Search bar Part
+
+//All my function exacuting
 allRecipes();
 firstArr();
 newRecipesList();
 hideTag();
 
+searchBar.addEventListener("filtre", () => {
+  const targetValue = searchBar.value;
+  console.log(targetValue);
+  console.log(targetValue.length);
+});
+// use a if statement here for tomorrow
