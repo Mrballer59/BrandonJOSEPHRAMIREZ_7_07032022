@@ -8,7 +8,7 @@ function getRecipes(recipe) {
 
   const ingredients = recipe.ingredients;
 
-  ingredients.forEach((ingredient) => {
+  ingredients.forEach(ingredient => {
     const li = document.createElement("li");
     li.innerHTML = `<span class="ingredient-menu">${
       ingredient.ingredient

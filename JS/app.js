@@ -2,8 +2,8 @@ const dropDownUstensiles = document.querySelector("#dropdown-ustensils");
 const sectionRecipes = document.querySelector("#display-menu");
 const dropDownAppareils = document.querySelector("#dropdown-appareils");
 const dropDownIngredients = document.querySelector("#dropdown-ingredients");
-const searchBar = document.getElementById("searchbar");
 const selectorContain = document.querySelector(".selector-contain");
+const searchBar = document.getElementById("searchbar");
 
 let arrRecipes = [];
 
@@ -12,8 +12,32 @@ function allRecipes() {
     arrRecipes.push(recipe);
     getRecipes(recipe);
   });
-  console.log(arrRecipes);
+  //console.log(arrRecipes);
 }
+
+//Search bar Part
+searchBar.addEventListener("change", () => {
+  const targetValue = searchBar.value;
+  console.log(targetValue);
+  console.log(targetValue.length);
+ // only executes when there is more than 3 characters in fromt the search bar 
+  if (targetValue.length >= 3){
+    //Get the display main content 
+    sectionRecipes.innerHTML= ""; 
+    //filter the first 3 characters 
+     recipes.filter((recipe)=>{
+      if (
+        recipe.name.includes(targetValue) ||
+        recipe.description.includes(targetValue) ||
+        recipe.ingredients.some((n)=> n.ingredient.includes(targetValue)) ||
+        recipe.ustensils.some((b)=> b.includes(targetValue)) ||
+        recipe.appliance.includes(targetValue)
+      ) {
+        getRecipes(recipe)
+      }
+     });
+  }
+});
 
 //declaring Arrays
 
@@ -59,8 +83,8 @@ function newRecipesList() {
   applianceArrNew = [...new Set(applianceArr)];
   ustensilesArrNew = [...new Set(ustensilestArr)];
 
-  console.log(ingredientArr);
-  console.log(ingredientArrNew);
+  // console.log(ingredientArr);
+  // console.log(ingredientArrNew);
   // console.log(ingredientArr);
 
   applianceArrNew.forEach((ne) => {
@@ -136,17 +160,9 @@ function newRecipesList() {
   });
 }
 
-//Search bar Part
 
 //All my function exacuting
 allRecipes();
 firstArr();
 newRecipesList();
 hideTag();
-
-searchBar.addEventListener("filtre", () => {
-  const targetValue = searchBar.value;
-  console.log(targetValue);
-  console.log(targetValue.length);
-});
-// use a if statement here for tomorrow
