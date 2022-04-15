@@ -3,7 +3,7 @@ const sectionRecipes = document.querySelector("#display-menu");
 const dropDownAppareils = document.querySelector("#dropdown-appareils");
 const dropDownIngredients = document.querySelector("#dropdown-ingredients");
 const selectorContain = document.querySelector(".selector-contain");
-const searchBar = document.getElementById("searchbar");
+const searchBar = document.querySelector("#searchbar");
 
 let arrRecipes = [];
 
