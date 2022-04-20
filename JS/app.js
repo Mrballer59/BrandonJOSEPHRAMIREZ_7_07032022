@@ -12,30 +12,35 @@ function allRecipes() {
     arrRecipes.push(recipe);
     getRecipes(recipe);
   });
+
   //console.log(arrRecipes);
 }
 
 //Search bar Part
 searchBar.addEventListener("change", () => {
-  const targetValue = searchBar.value;
+  const targetValue = searchBar.value.toLowerCase();
   console.log(targetValue);
   console.log(targetValue.length);
- // only executes when there is more than 3 characters in fromt the search bar 
-  if (targetValue.length >= 3){
-    //Get the display main content 
-    sectionRecipes.innerHTML= ""; 
-    //filter the first 3 characters 
-     recipes.filter((recipe)=>{
+
+  // only executes when there is more than 3 characters in fromt the search bar
+  if (targetValue.length >= 3) {
+    //Get the display main content
+
+    sectionRecipes.innerHTML = "";
+
+    //filter the first 3 characters
+
+    recipes.filter((recipe) => {
       if (
         recipe.name.includes(targetValue) ||
         recipe.description.includes(targetValue) ||
-        recipe.ingredients.some((n)=> n.ingredient.includes(targetValue)) ||
-        recipe.ustensils.some((b)=> b.includes(targetValue)) ||
+        recipe.ingredients.some((n) => n.ingredient.includes(targetValue)) ||
+        recipe.ustensils.some((b) => b.includes(targetValue)) ||
         recipe.appliance.includes(targetValue)
       ) {
-        getRecipes(recipe)
+        getRecipes(recipe);
       }
-     });
+    });
   }
 });
 
@@ -159,7 +164,6 @@ function newRecipesList() {
     });
   });
 }
-
 
 //All my function exacuting
 allRecipes();
