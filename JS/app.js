@@ -19,15 +19,26 @@ function allRecipes() {
 //Search bar Part
 searchBar.addEventListener("change", () => {
   const targetValue = searchBar.value.toLowerCase();
-  console.log(targetValue);
-  console.log(targetValue.length);
+  // console.log(targetValue);
+  // console.log(targetValue.length);
+  //For reseting the Dom droplist
+  sectionRecipes.innerHTML = "";
+  dropDownAppareils.innerHTML = "";
+  dropDownIngredients.innerHTML = "";
+  dropDownUstensiles.innerHTML = "";
+  //reseting the main display array
+  arrRecipes = [];
+  //resetting the  old arrays
+  ingredientArr = [];
+  applianceArr = [];
+  ustensilestArr = [];
+  //resetting the New  arrays
+  ingredientArrNew = [];
+  applianceArrNew = [];
+  ustensilesArrNew = [];
 
   // only executes when there is more than 3 characters in fromt the search bar
   if (targetValue.length >= 3) {
-    //Get the display main content
-
-    sectionRecipes.innerHTML = "";
-
     //filter the first 3 characters
 
     recipes.filter((recipe) => {
@@ -38,10 +49,26 @@ searchBar.addEventListener("change", () => {
         recipe.ustensils.some((b) => b.includes(targetValue)) ||
         recipe.appliance.includes(targetValue)
       ) {
+        //pushs new array and exacutes according to input result
+        arrRecipes.push(recipe);
         getRecipes(recipe);
+        firstArr(recipe);
       }
     });
   }
+  //resetting if the search input is NUL
+  else if (targetValue.length === 0) {
+    arrRecipes = [];
+    allRecipes();
+    firstArr();
+  }
+  newRecipesList();
+  console.log(ingredientArr);
+  console.log(ingredientArrNew);
+  //console.log(applianceArr);
+  // console.log(applianceArrNew);
+  //console.log(ustensilestArr);
+  // console.log(ustensilesArrNew);
 });
 
 //declaring Arrays
@@ -164,7 +191,6 @@ function newRecipesList() {
     });
   });
 }
-
 //All my function exacuting
 allRecipes();
 firstArr();
