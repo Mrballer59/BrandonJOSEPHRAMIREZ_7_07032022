@@ -196,3 +196,4 @@ allRecipes();
 firstArr();
 newRecipesList();
 hideTag();
+// Start the tag button filtering through and picking the selected value
