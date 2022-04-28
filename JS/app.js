@@ -99,6 +99,9 @@ function firstArr() {
       ingredientArr.push(ingredient.ingredient);
     });
   });
+  ingredientArrNew = [...new Set(ingredientArr)];
+  applianceArrNew = [...new Set(applianceArr)];
+  ustensilesArrNew = [...new Set(ustensilestArr)];
 }
 //function for the tags to hide
 function hideTag() {
@@ -111,9 +114,9 @@ function hideTag() {
 }
 //Getting the duplicate
 function newRecipesList() {
-  ingredientArrNew = [...new Set(ingredientArr)];
-  applianceArrNew = [...new Set(applianceArr)];
-  ustensilesArrNew = [...new Set(ustensilestArr)];
+  applianceArrNew = applianceArrNew.sort();
+  ustensilesArrNew = ustensilesArrNew.sort();
+  ingredientArrNew = ingredientArrNew.sort();
 
   // console.log(ingredientArr);
   // console.log(ingredientArrNew);
