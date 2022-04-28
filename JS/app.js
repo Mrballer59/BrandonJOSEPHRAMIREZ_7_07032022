@@ -114,6 +114,7 @@ function hideTag() {
 }
 //Getting the duplicate
 function newRecipesList() {
+  //sorted by Alphabetical
   applianceArrNew = applianceArrNew.sort();
   ustensilesArrNew = ustensilesArrNew.sort();
   ingredientArrNew = ingredientArrNew.sort();
@@ -163,6 +164,10 @@ function newRecipesList() {
       fill="white" />
     </svg>`;
       selectorContain.appendChild(tagApp);
+
+      //here you need to add the array part to add and remove it from the drop list
+      //needs to be done tomoroow
+
       hideTag();
     });
   });
