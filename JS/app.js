@@ -103,6 +103,7 @@ function sortTagList() {
         recipe.ingredients.some((i) =>
           i.ingredient.toLowerCase().includes(tag)
         ) ||
+        recipe.ustensils.some((u)=> u.toLowerCase().includes(tag)) ||
         recipe.appliance.toLowerCase().includes(tag)
       ) {
         arrTagSortedList.push(recipe);
@@ -129,7 +130,7 @@ function closeTagRecipes() {
           recipe.name.toLowerCase().includes(tag) ||
           recipe.description.toLowerCase().includes(tag) ||
           recipe.ingredient.some((i) =>
-            i.ingredient.toLowerCase().includes()
+            i.ingredient.toLowerCase().includes(tag)
           ) ||
           recipe.ustensil.some((u) => u.toLowerCase().includes(tag)) ||
           recipe.appliance.toLowerCase().includes(tag)
