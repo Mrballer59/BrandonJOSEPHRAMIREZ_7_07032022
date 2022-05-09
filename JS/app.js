@@ -4,8 +4,12 @@ const dropDownAppareils = document.querySelector("#dropdown-appareils");
 const dropDownIngredients = document.querySelector("#dropdown-ingredients");
 const selectorContain = document.querySelector(".selector-contain");
 const searchBar = document.querySelector("#searchbar");
-
+const tagAdder = document.querySelectorAll(".add-selector");
+// Variabales outside the scope
 let arrRecipes = [];
+let tagsDropDown = [];
+
+let arrTagSortedList = [];
 
 function allRecipes() {
   recipes.forEach((recipe) => {
@@ -16,9 +20,11 @@ function allRecipes() {
   //console.log(arrRecipes);
 }
 
-//Search bar Part
-searchBar.addEventListener("change", () => {
-  const targetValue = searchBar.value.toLowerCase();
+//Function Search bar Part//
+
+function searchBarValue(targetValue) {
+  // searchBar.addEventListener("change", () => {
+  // const targetValue = searchBar.value.toLowerCase();
   // console.log(targetValue);
   // console.log(targetValue.length);
   //For reseting the Dom droplist
@@ -26,6 +32,9 @@ searchBar.addEventListener("change", () => {
   dropDownAppareils.innerHTML = "";
   dropDownIngredients.innerHTML = "";
   dropDownUstensiles.innerHTML = "";
+
+  selectorContain.innerHTML = "";
+
   //reseting the main display array
   arrRecipes = [];
   //resetting the  old arrays
@@ -36,6 +45,11 @@ searchBar.addEventListener("change", () => {
   ingredientArrNew = [];
   applianceArrNew = [];
   ustensilesArrNew = [];
+  tagsDropDown = [];
+
+  tagAdder.forEach((chain) => {
+    chain.remove();
+  });
 
   // only executes when there is more than 3 characters in fromt the search bar
   if (targetValue.length >= 3) {
@@ -43,11 +57,13 @@ searchBar.addEventListener("change", () => {
 
     recipes.filter((recipe) => {
       if (
-        recipe.name.includes(targetValue) ||
-        recipe.description.includes(targetValue) ||
-        recipe.ingredients.some((n) => n.ingredient.includes(targetValue)) ||
-        recipe.ustensils.some((b) => b.includes(targetValue)) ||
-        recipe.appliance.includes(targetValue)
+        recipe.name.toLowerCase().includes(targetValue) ||
+        recipe.description.toLowerCase().includes(targetValue) ||
+        recipe.ingredients.some((n) =>
+          n.ingredient.toLowerCase().includes(targetValue)
+        ) ||
+        recipe.ustensils.some((b) => b.toLowerCase().includes(targetValue)) ||
+        recipe.appliance.toLowerCase().includes(targetValue)
       ) {
         //pushs new array and exacutes according to input result
         arrRecipes.push(recipe);
@@ -56,22 +72,84 @@ searchBar.addEventListener("change", () => {
       }
     });
   }
-  //resetting if the search input is NUL
-  else if (targetValue.length === 0) {
+
+  //resetting if the search input is NUL//
+  else if (targetValue.length <= 2) {
     arrRecipes = [];
     allRecipes();
     firstArr();
   }
+  console.log(arrRecipes);
   newRecipesList();
-  console.log(ingredientArr);
-  console.log(ingredientArrNew);
+  // console.log(ingredientArr);
+  // console.log(ingredientArrNew);
   //console.log(applianceArr);
   // console.log(applianceArrNew);
   //console.log(ustensilestArr);
   // console.log(ustensilesArrNew);
-});
+  // });
+}
 
-//declaring Arrays
+//New function tag to sort//
+function sortTagList() {
+  sectionRecipes.innerHTML = "";
+  arrTagSortedList = [];
+
+  arrRecipes.filter((recipe) => {
+    tagsDropDown.forEach((tag) => {
+      if (
+        recipe.name.toLowerCase().includes(tag) ||
+        recipe.description.toLowerCase().includes(tag) ||
+        recipe.ingredients.some((i) =>
+          i.ingredient.toLowerCase().includes(tag)
+        ) ||
+        recipe.appliance.toLowerCase().includes(tag)
+      ) {
+        arrTagSortedList.push(recipe);
+      }
+    });
+  });
+  arrTagSortedList = [...new Set(arrTagSortedList)];
+  arrTagSortedList.forEach((recipe) => {
+    getRecipes(recipe);
+  });
+  console.log(arrTagSortedList);
+}
+
+// function to close recipes//
+
+function closeTagRecipes() {
+  sectionRecipes.innerHTML = "";
+  arrTagSortedList = [];
+
+  if (tagsDropDown.length >= 1) {
+    arrRecipes.filter((recipe) => {
+      tagsDropDown.forEach((tag) => {
+        if (
+          recipe.name.toLowerCase().includes(tag) ||
+          recipe.description.toLowerCase().includes(tag) ||
+          recipe.ingredient.some((i) =>
+            i.ingredient.toLowerCase().includes()
+          ) ||
+          recipe.ustensil.some((u) => u.toLowerCase().includes(tag)) ||
+          recipe.appliance.toLowerCase().includes(tag)
+        ) {
+          arrTagSortedList.push(recipe);
+        }
+      });
+    });
+    arrTagSortedList = [...new Set(arrTagSortedList)];
+    arrTagSortedList.forEach((recipe) => {
+      getRecipes(recipe);
+    });
+  } else if (tagsDropDown.length === 0) {
+    arrRecipes.forEach((recipe) => {
+      getRecipes(recipe);
+    });
+  }
+}
+
+//Declaring Arrays
 
 let ingredientArr = [];
 let applianceArr = [];
@@ -88,28 +166,48 @@ let ustensilesArrNew = [];
 function firstArr() {
   arrRecipes.forEach((recipe) => {
     {
-      applianceArr.push(recipe.appliance);
+      applianceArr.push(recipe.appliance.toLowerCase());
     }
 
     recipe.ustensils.forEach((ustensil) => {
-      ustensilestArr.push(ustensil);
+      ustensilestArr.push(ustensil.toLowerCase());
     });
 
     recipe.ingredients.forEach((ingredient) => {
-      ingredientArr.push(ingredient.ingredient);
+      ingredientArr.push(ingredient.ingredient.toLowerCase());
     });
   });
   ingredientArrNew = [...new Set(ingredientArr)];
   applianceArrNew = [...new Set(applianceArr)];
   ustensilesArrNew = [...new Set(ustensilestArr)];
 }
-//function for the tags to hide
-function hideTag() {
-  const hideSelector = document.querySelectorAll(".close-selector");
-  hideSelector.forEach((chain) => {
-    chain.addEventListener("click", () => {
-      chain.parentElement.remove();
-    });
+
+//function for the tags to hide//
+
+function hideTag(hideTag, tag) {
+  hideTag.addEventListener("click", (chain) => {
+    const closeTag = chain.path[2].textContent.toLowerCase();
+    const cathTag = chain.path[2].className.toLowerCase();
+    tagsDropDown = tagsDropDown.filter((tag) => tag != closeTag);
+
+    if (cathTag.includes("ingredient")) {
+      ingredientArrNew.push(closeTag.toLowerCase());
+    }
+
+    if (cathTag.includes("appareils")) {
+      applianceArrNew.push(closeTag.toLowerCase());
+    }
+
+    if (cathTag.includes("ustensiles")) {
+      ustensilesArrNew.push(closeTag.toLowerCase());
+    }
+    tag.remove();
+
+    dropDownAppareils.innerHTML = "";
+    dropDownIngredients.innerHTML = "";
+    dropDownUstensiles.innerHTML = "";
+    newRecipesList();
+    closeTagRecipes();
   });
 }
 //Getting the duplicate
@@ -151,57 +249,108 @@ function newRecipesList() {
   const chainNavIngredient = document.querySelectorAll(
     "a.link-nav.ingredients"
   );
+  const allChainNav = document.querySelectorAll("a.link-nav");
   const chainNavUstensiles = document.querySelectorAll("a.link-nav.ustensiles");
   const chainNavAppareils = document.querySelectorAll("a.link-nav.appareils");
 
   chainNavAppareils.forEach((chain) => {
     chain.addEventListener("click", () => {
       const tagApp = document.createElement("div");
+      const exPart = document.createElement("div");
+      const crossPart = document.createElement("i");
+
       tagApp.classList.add("add-selector");
       tagApp.classList.add("appareils");
-      tagApp.innerHTML = `${chain.innerHTML}<svg class="close-selector width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
-      fill="white" />
-    </svg>`;
+      exPart.classList.add("close-selector");
+      crossPart.classList.add("bi");
+      crossPart.classList.add("bi-x-circle");
+
+      tagApp.innerHTML = `${chain.innerHTML}`;
+
+      tagApp.appendChild(exPart);
+      exPart.appendChild(crossPart);
       selectorContain.appendChild(tagApp);
 
-      //here you need to add the array part to add and remove it from the drop list
-      //needs to be done tomoroow
+      tagsDropDown.push(chain.innerHTML.toLowerCase());
+      applianceArrNew = applianceArrNew.filter(
+        (tagApp) => tagApp != chain.innerHTML.toLowerCase()
+      );
 
-      hideTag();
+      chain.remove();
+      hideTag(crossPart, tagApp);
     });
   });
 
   chainNavIngredient.forEach((chain) => {
     chain.addEventListener("click", () => {
       const tagIng = document.createElement("div");
+      const exPart = document.createElement("div");
+      const crossPart = document.createElement("i");
+
       tagIng.classList.add("add-selector");
       tagIng.classList.add("ingredient");
-      tagIng.innerHTML = `${chain.innerHTML}<svg class="close-selector width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
-      fill="white" />
-    </svg>`;
+      exPart.classList.add("close-selector");
+      crossPart.classList.add("bi");
+      crossPart.classList.add("bi-x-circle");
+
+      tagIng.innerHTML = `${chain.innerHTML}`;
+
+      tagIng.appendChild(exPart);
+      exPart.appendChild(crossPart);
       selectorContain.appendChild(tagIng);
-      hideTag();
+
+      tagsDropDown.push(chain.innerHTML.toLowerCase());
+      ingredientArrNew = ingredientArrNew.filter(
+        (tagIng) => tagIng != chain.innerHTML.toLowerCase()
+      );
+      chain.remove();
+      hideTag(crossPart, tagIng);
     });
   });
+
   chainNavUstensiles.forEach((chain) => {
     chain.addEventListener("click", () => {
       const tagUst = document.createElement("div");
+      const exPart = document.createElement("div");
+      const closeCross = document.createElement("i");
+
       tagUst.classList.add("add-selector");
       tagUst.classList.add("ustensiles");
-      tagUst.innerHTML = `${chain.innerHTML}<svg class="close-selector width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
-      fill="white" />
-    </svg>`;
+      exPart.classList.add("close-selector");
+      closeCross.classList.add("bi");
+      closeCross.classList.add("bi-x-circle");
+
+      tagUst.innerHTML = `${chain.innerHTML}`;
+      tagUst.appendChild(exPart);
+      exPart.appendChild(closeCross);
       selectorContain.appendChild(tagUst);
-      hideTag();
+
+      tagsDropDown.push(chain.innerHTML.toLowerCase());
+      ustensilesArrNew = ustensilesArrNew.filter(
+        (tagUst) => tagUst != chain.innerHTML.toLowerCase()
+      );
+      chain.remove();
+      hideTag(closeCross, tagUst);
+    });
+  });
+
+  //to loop through the dropdown
+  allChainNav.forEach((chain) => {
+    chain.addEventListener("click", () => {
+      sortTagList();
+      console.log(tagsDropDown);
     });
   });
 }
+//the listerner for the searchbar //
+
+searchBar.addEventListener("change", () => {
+  const targetValue = searchBar.value.toLowerCase();
+  searchBarValue(targetValue);
+});
+
 //All my function exacuting
 allRecipes();
 firstArr();
 newRecipesList();
-hideTag();
 // Start the tag button filtering through and picking the selected value
