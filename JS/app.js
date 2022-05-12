@@ -5,6 +5,9 @@ const dropDownIngredients = document.querySelector("#dropdown-ingredients");
 const selectorContain = document.querySelector(".selector-contain");
 const searchBar = document.querySelector("#searchbar");
 const tagAdder = document.querySelectorAll(".add-selector");
+const searchAppareilsSelecter = document.querySelector("#appareils-select");
+const searchUstensilesSelecter = document.querySelector("#ustensiles-select");
+const searchIngredientSelecter = document.querySelector("#ingredient-select");
 // Variabales outside the scope
 let arrRecipes = [];
 let tagsDropDown = [];
@@ -12,6 +15,11 @@ let tagsDropDown = [];
 let arrTagSortedList = [];
 
 function allRecipes() {
+  sectionRecipes.innerHTML = "";
+  dropDownAppareils.innerHTML = "";
+  dropDownIngredients.innerHTML = "";
+  dropDownUstensiles.innerHTML = "";
+  selectorContain.innerHTML = "";
   recipes.forEach((recipe) => {
     arrRecipes.push(recipe);
     getRecipes(recipe);
@@ -23,10 +31,6 @@ function allRecipes() {
 //Function Search bar Part//
 
 function searchBarValue(targetValue) {
-  // searchBar.addEventListener("change", () => {
-  // const targetValue = searchBar.value.toLowerCase();
-  // console.log(targetValue);
-  // console.log(targetValue.length);
   //For reseting the Dom droplist
   sectionRecipes.innerHTML = "";
   dropDownAppareils.innerHTML = "";
@@ -91,54 +95,24 @@ function searchBarValue(targetValue) {
 }
 
 //New function tag to sort//
-function sortTagList() {
+function sortTagList(arr, tag) {
   sectionRecipes.innerHTML = "";
   arrTagSortedList = [];
-
-  arrRecipes.filter((recipe) => {
-    tagsDropDown.forEach((tag) => {
+  if (tagsDropDown.length >= 1) {
+    arr.filter((recipe) => {
       if (
         recipe.name.toLowerCase().includes(tag) ||
         recipe.description.toLowerCase().includes(tag) ||
         recipe.ingredients.some((i) =>
           i.ingredient.toLowerCase().includes(tag)
         ) ||
-        recipe.ustensils.some((u)=> u.toLowerCase().includes(tag)) ||
+        recipe.ustensils.some((u) => u.toLowerCase().includes(tag)) ||
         recipe.appliance.toLowerCase().includes(tag)
       ) {
         arrTagSortedList.push(recipe);
       }
     });
-  });
-  arrTagSortedList = [...new Set(arrTagSortedList)];
-  arrTagSortedList.forEach((recipe) => {
-    getRecipes(recipe);
-  });
-  console.log(arrTagSortedList);
-}
 
-// function to close recipes//
-
-function closeTagRecipes() {
-  sectionRecipes.innerHTML = "";
-  arrTagSortedList = [];
-
-  if (tagsDropDown.length >= 1) {
-    arrRecipes.filter((recipe) => {
-      tagsDropDown.forEach((tag) => {
-        if (
-          recipe.name.toLowerCase().includes(tag) ||
-          recipe.description.toLowerCase().includes(tag) ||
-          recipe.ingredient.some((i) =>
-            i.ingredient.toLowerCase().includes(tag)
-          ) ||
-          recipe.ustensil.some((u) => u.toLowerCase().includes(tag)) ||
-          recipe.appliance.toLowerCase().includes(tag)
-        ) {
-          arrTagSortedList.push(recipe);
-        }
-      });
-    });
     arrTagSortedList = [...new Set(arrTagSortedList)];
     arrTagSortedList.forEach((recipe) => {
       getRecipes(recipe);
@@ -148,7 +122,39 @@ function closeTagRecipes() {
       getRecipes(recipe);
     });
   }
+  return arrTagSortedList;
 }
+
+// console.log(arrTagSortedList);
+
+// function to close recipes//
+
+searchBar.addEventListener("keyup", () => {
+  if (searchBar.value.length >= 1) {
+    const targetValue = searchBar.value.toLowerCase();
+    searchBarValue(targetValue);
+  } else if (searchBar.value.length === 0) {
+    allRecipes();
+    firstArr();
+    newRecipesList();
+  }
+});
+
+searchIngredientSelecter.addEventListener("keyup", () => {
+  if (searchIngredientSelecter.value.length > 0) {
+    console.log(searchIngredientSelecter.value.toLowerCase());
+  }
+});
+searchUstensilesSelecter.addEventListener("keyup", () => {
+  if (searchUstensilesSelecter.value.length > 0) {
+    console.log(searchUstensilesSelecter.value.toLowerCase());
+  }
+});
+searchAppareilsSelecter.addEventListener("keyup", () => {
+  if (AppareilsSelecter.value.length > 0) {
+    console.log(AppareilsSelecter.value.toLowerCase());
+  }
+});
 
 //Declaring Arrays
 
@@ -203,12 +209,21 @@ function hideTag(hideTag, tag) {
       ustensilesArrNew.push(closeTag.toLowerCase());
     }
     tag.remove();
-
     dropDownAppareils.innerHTML = "";
     dropDownIngredients.innerHTML = "";
     dropDownUstensiles.innerHTML = "";
     newRecipesList();
-    closeTagRecipes();
+
+    if (tagsDropDown.length >= 1) {
+      let listedArr = arrRecipes;
+      tagsDropDown.forEach((tag) => {
+        listedArr = sortTagList(listedArr, tag);
+      });
+    } else if (tagsDropDown.length === 0) {
+      arrRecipes.forEach((recipe) => {
+        getRecipes(recipe);
+      });
+    }
   });
 }
 //Getting the duplicate
@@ -338,7 +353,10 @@ function newRecipesList() {
   //to loop through the dropdown
   allChainNav.forEach((chain) => {
     chain.addEventListener("click", () => {
-      sortTagList();
+      let listedArr = arrRecipes;
+      tagsDropDown.forEach((chain) => {
+        listedArr = sortTagList(listedArr, chain);
+      });
       console.log(tagsDropDown);
     });
   });
