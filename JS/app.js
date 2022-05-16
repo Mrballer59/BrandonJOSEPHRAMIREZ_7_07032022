@@ -8,6 +8,7 @@ const tagAdder = document.querySelectorAll(".add-selector");
 const searchAppareilsSelecter = document.querySelector("#appareils-select");
 const searchUstensilesSelecter = document.querySelector("#ustensiles-select");
 const searchIngredientSelecter = document.querySelector("#ingredient-select");
+const buttonSelect = document.querySelector(".btn-selection");
 // Variabales outside the scope
 let arrRecipes = [];
 let tagsDropDown = [];
@@ -84,6 +85,7 @@ function searchBarValue(targetValue) {
     firstArr();
   }
   console.log(arrRecipes);
+  errorMessage();
   newRecipesList();
   // console.log(ingredientArr);
   // console.log(ingredientArrNew);
@@ -122,6 +124,7 @@ function sortTagList(arr, tag) {
       getRecipes(recipe);
     });
   }
+  errorMessage();
   return arrTagSortedList;
 }
 
@@ -141,10 +144,28 @@ searchBar.addEventListener("keyup", () => {
 });
 
 searchIngredientSelecter.addEventListener("keyup", () => {
+  const chainNavIngredient = document.querySelectorAll(
+    "a.link-nav.ingredients"
+  );
   if (searchIngredientSelecter.value.length > 0) {
-    console.log(searchIngredientSelecter.value.toLowerCase());
+    chainNavIngredient.forEach((el) => {
+      if (
+        el.innerText
+          .toLowerCase()
+          .includes(searchIngredientSelecter.value.toLowerCase())
+      ) {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    });
+  } else if (searchIngredientSelecter.value.length === 0) {
+    chainNavIngredient.forEach((el) => {
+      el.style.display = "block";
+    });
   }
 });
+
 searchUstensilesSelecter.addEventListener("keyup", () => {
   if (searchUstensilesSelecter.value.length > 0) {
     console.log(searchUstensilesSelecter.value.toLowerCase());
@@ -363,10 +384,20 @@ function newRecipesList() {
 }
 //the listerner for the searchbar //
 
-searchBar.addEventListener("change", () => {
-  const targetValue = searchBar.value.toLowerCase();
-  searchBarValue(targetValue);
-});
+// searchBar.addEventListener("change", () => {
+//   const targetValue = searchBar.value.toLowerCase();
+//   searchBarValue(targetValue);
+// });
+
+function errorMessage() {
+  if (sectionRecipes.firstElementChild === null) {
+    sectionRecipes.innerHTML = "";
+    let errorDisplay = document.createElement("p");
+    errorDisplay.innerHTML =
+      "Aucune recette ne correspond à votre critère ...vous pouvez, par exemple, rechercher 'tarte aux pommes', 'poisson', etc.";
+    sectionRecipes.appendChild(errorDisplay);
+  }
+}
 
 //All my function exacuting
 allRecipes();
