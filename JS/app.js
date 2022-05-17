@@ -167,13 +167,44 @@ searchIngredientSelecter.addEventListener("keyup", () => {
 });
 
 searchUstensilesSelecter.addEventListener("keyup", () => {
+  const chainNavUstensiles = document.querySelectorAll("a.link-nav.ustensiles");
   if (searchUstensilesSelecter.value.length > 0) {
-    console.log(searchUstensilesSelecter.value.toLowerCase());
+    chainNavUstensiles.forEach((el) => {
+      if (
+        el.innerText
+          .toLowerCase()
+          .includes(searchUstensilesSelecter.value.toLowerCase())
+      ) {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    });
+  } else if (searchUstensilesSelecter.value.length === 0) {
+    chainNavUstensiles.forEach((el) => {
+      el.style.display = "block";
+    });
   }
 });
+
 searchAppareilsSelecter.addEventListener("keyup", () => {
-  if (AppareilsSelecter.value.length > 0) {
-    console.log(AppareilsSelecter.value.toLowerCase());
+  const chainNavAppareils = document.querySelectorAll("a.link-nav.appareils");
+  if (searchAppareilsSelecter.value.length > 0) {
+    chainNavAppareils.forEach((el) => {
+      if (
+        el.innerText
+          .toLowerCase()
+          .includes(searchAppareilsSelecter.value.toLowerCase())
+      ) {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    });
+  } else if (searchAppareilsSelecter.value.length === 0) {
+    chainNavAppareils.forEach((el) => {
+      el.style.display = "block";
+    });
   }
 });
 
