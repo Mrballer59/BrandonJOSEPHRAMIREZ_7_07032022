@@ -17,22 +17,7 @@ body {
   padding-right: 75px;
   padding-left: 75px;
 }
-@media screen and (max-width: 1200px) {
-  .card {
-    width: 45%;
-  }
-}
-@media screen and (max-width: 850px) {
-  body {
-    padding: 30px;
-  }
-  .card {
-    width: 90%;
-  }
-  #display-menu {
-    justify-content: center;
-  }
-}
+
 header {
   text-align: center;
 }
@@ -209,7 +194,25 @@ header {
 .etape-recette {
   width: 50%;
   font-size: smaller;
+  overflow: auto;
+  height: 100px;
 }
 .ingredient-menu {
   font-weight: bold;
+}
+@media screen and (max-width: 1200px) {
+  .card {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 850px) {
+  body {
+    padding: 30px;
+  }
+  .card {
+    width: 90%;
+  }
+  #display-menu {
+    justify-content: center;
+  }
 }
