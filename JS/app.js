@@ -37,7 +37,6 @@ function searchBarValue(targetValue) {
   dropDownAppareils.innerHTML = "";
   dropDownIngredients.innerHTML = "";
   dropDownUstensiles.innerHTML = "";
-
   selectorContain.innerHTML = "";
 
   //reseting the main display array
@@ -52,48 +51,41 @@ function searchBarValue(targetValue) {
   ustensilesArrNew = [];
   tagsDropDown = [];
 
-  tagAdder.forEach((chain) => {
-    chain.remove();
-  });
+  // tagAdder.forEach((chain) => {
+  //   chain.remove();
+  // });
 
-  // only executes when there is more than 3 characters in fromt the search bar
-  if (targetValue.length >= 3) {
-    //filter the first 3 characters
+  // // only executes when there is more than 3 characters in fromt the search bar
+  // if (targetValue.length >= 3) {
+  //   //filter the first 3 characters
 
-    recipes.filter((recipe) => {
-      if (
-        recipe.name.toLowerCase().includes(targetValue) ||
-        recipe.description.toLowerCase().includes(targetValue) ||
-        recipe.ingredients.some((n) =>
-          n.ingredient.toLowerCase().includes(targetValue)
-        ) ||
-        recipe.ustensils.some((b) => b.toLowerCase().includes(targetValue)) ||
-        recipe.appliance.toLowerCase().includes(targetValue)
-      ) {
-        //pushs new array and exacutes according to input result
-        arrRecipes.push(recipe);
-        getRecipes(recipe);
-        firstArr(recipe);
-      }
-    });
-  }
+  //   recipes.filter((recipe) => {
+  //     if (
+  //       recipe.name.toLowerCase().includes(targetValue) ||
+  //       recipe.description.toLowerCase().includes(targetValue) ||
+  //       recipe.ingredients.some((n) =>
+  //         n.ingredient.toLowerCase().includes(targetValue)
+  //       ) ||
+  //       recipe.ustensils.some((b) => b.toLowerCase().includes(targetValue)) ||
+  //       recipe.appliance.toLowerCase().includes(targetValue)
+  //     ) {
+  //       //pushs new array and exacutes according to input result
+  //       arrRecipes.push(recipe);
+  //       getRecipes(recipe);
+  //       firstArr(recipe);
+  //     }
+  //   });
+  // }
 
-  //resetting if the search input is NUL//
-  else if (targetValue.length <= 2) {
-    arrRecipes = [];
-    allRecipes();
-    firstArr();
-  }
+  // //resetting if the search input is NUL//
+  // else if (targetValue.length <= 2) {
+  //   arrRecipes = [];
+  //   allRecipes();
+  //   firstArr();
+  // }
   console.log(arrRecipes);
   errorMessage();
   newRecipesList();
-  // console.log(ingredientArr);
-  // console.log(ingredientArrNew);
-  //console.log(applianceArr);
-  // console.log(applianceArrNew);
-  //console.log(ustensilestArr);
-  // console.log(ustensilesArrNew);
-  // });
 }
 
 //New function tag to sort//
@@ -284,10 +276,6 @@ function newRecipesList() {
   applianceArrNew = applianceArrNew.sort();
   ustensilesArrNew = ustensilesArrNew.sort();
   ingredientArrNew = ingredientArrNew.sort();
-
-  // console.log(ingredientArr);
-  // console.log(ingredientArrNew);
-  // console.log(ingredientArr);
 
   applianceArrNew.forEach((ne) => {
     const chainA = document.createElement("a");
