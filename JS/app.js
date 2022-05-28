@@ -51,39 +51,54 @@ function searchBarValue(targetValue) {
   ustensilesArrNew = [];
   tagsDropDown = [];
 
-  // tagAdder.forEach((chain) => {
-  //   chain.remove();
-  // });
+  //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP
+  function versionTwo(ant, nums) {
+    if (ant.length == 0) return 0;
 
-  // // only executes when there is more than 3 characters in fromt the search bar
-  // if (targetValue.length >= 3) {
-  //   //filter the first 3 characters
+    let pass = [0];
+    for (let i = 1; i < ant.length; i++) {
+      let j = pass[i - 1];
+      while (j > 0 && ant.charAt(i) != ant.charAt(j)) j = pass[j - 1];
+      if (ant.charAt(i) == ant.charAt(j)) j++;
+      pass.push(j);
+    }
 
-  //   recipes.filter((recipe) => {
-  //     if (
-  //       recipe.name.toLowerCase().includes(targetValue) ||
-  //       recipe.description.toLowerCase().includes(targetValue) ||
-  //       recipe.ingredients.some((n) =>
-  //         n.ingredient.toLowerCase().includes(targetValue)
-  //       ) ||
-  //       recipe.ustensils.some((b) => b.toLowerCase().includes(targetValue)) ||
-  //       recipe.appliance.toLowerCase().includes(targetValue)
-  //     ) {
-  //       //pushs new array and exacutes according to input result
-  //       arrRecipes.push(recipe);
-  //       getRecipes(recipe);
-  //       firstArr(recipe);
-  //     }
-  //   });
-  // }
+    let j = 0;
+    for (let i = 0; i < nums.length; i++) {
+      while (j < 0 && nums.charAt(i) != nums.chatAt(j)) j = pass[j - 1];
+      if (nums.charAt(i) == ant.charAt(j)) {
+        j++;
+        if (j == ant.length) return i - (j - 1);
+      }
+    }
+    return -1;
+  }
+  for (let i = 0; i < tagAdder.length; i++) {
+    tagAdder[i].remove();
+  }
 
-  // //resetting if the search input is NUL//
-  // else if (targetValue.length <= 2) {
-  //   arrRecipes = [];
-  //   allRecipes();
-  //   firstArr();
-  // }
-  console.log(arrRecipes);
+  // getting the values from the searchbar
+  for (recipe of recipes) {
+    if (
+      versionTwo(targetValue, recipe.name.toLowerCase()) != -1 ||
+      versionTwo(targetValue, recipe.description.toLowerCase()) != -1 ||
+      recipe.ingredients.some(
+        (i) => versionTwo(targetValue, i.ingredient.toLowerCase()) != -1
+      ) ||
+      recipe.ustensils.some(
+        (u) => versionTwo(targetValue, u.toLowerCase()) != -1
+      ) ||
+      versionTwo(targetValue, recipe.appliance.toLowerCase()) != -1
+    ) {
+      arrRecipes.push(recipe);
+      getRecipes(recipe);
+      console.log(arrRecipes);
+      firstArr(recipe);
+    }
+  }
+
+  //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP //2nd Version LOOP
+
   errorMessage();
   newRecipesList();
 }
